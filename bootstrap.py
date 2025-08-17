@@ -4,7 +4,7 @@ from uvicorn import run as uvicorn_run
 
 # ---- Paramètres via env (avec valeurs par défaut) ----
 HOST         = os.getenv("C2_HOST", "0.0.0.0")
-PORT         = int(os.getenv("C2_PORT", "8000"))
+PORT         = int(os.getenv("C2_PORT", "80"))
 CERT_DIR     = pathlib.Path(os.getenv("C2_CERT_DIR", "."))
 CERT_FILE    = CERT_DIR / os.getenv("C2_CERT_FILE", "cert.pem")
 KEY_FILE     = CERT_DIR / os.getenv("C2_KEY_FILE", "key.pem")
@@ -106,8 +106,8 @@ def main():
         APP_IMPORT,
         host=HOST,
         port=PORT,
-        ssl_keyfile=str(KEY_FILE),
-        ssl_certfile=str(CERT_FILE),
+        #ssl_keyfile=str(KEY_FILE),
+        #ssl_certfile=str(CERT_FILE),
     )
 
 if __name__ == "__main__":
